@@ -1,11 +1,11 @@
 # ChromePassDumper
-Specific and simple tool for educational purposes: demonstrating live dumping of Chrome passwords or practising a simulated scenario of "two-step offline attack" for password database stealing.
+Specific and simple tool for educational purposes: demonstrating live dumping of Chrome passwords in Windows OSes or practising a simulated scenario of "two-step offline attack" for password database stealing.
 
 This tool is basically a script that dumps passwords stored in Google Chrome default profile of the live user. 
 
 Chrome is not storing passwods in clear in its databases, it ciphers them through Data Protection API before storing the resultant BLOBS into the "login data" SQLITE file inside the user profile. 
 
-The script retrieves the ciphered BLOBs from such database and then requests the decription of cyphered BLOB to the Local Security Authority through Windows Data Protection API.
+The script retrieves the ciphered BLOBs from such database and then requests the decription of cyphered BLOB to the Local Security Authority through **Windows Data Protection API (DPAPI)**, writing decrypted values to a clear text file afterwards.
 
 Since DPAPI uses several ciphering layers, and the first of them is derived (400 rounds PBKDF2) from user password, access to DPAPI decryption functions is not possible if the user is not logged in the live system, making the offline decryption of Chrome passwords a matter of slow, unfeasible bruteforcing. This suposes an enhancement since previous versions of Chrome, which stored passwords in clear, but it is still poses a compromisable vector in case the computer does not use full disk encryption. This is is possible thanks to two-step offline DPAPI attacks (see below). 
 
