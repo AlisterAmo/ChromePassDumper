@@ -3,11 +3,11 @@ Specific and simple tool for educational purposes: demonstrating live dumping of
 
 This tool is basically a script that dumps passwords stored in Google Chrome default profile of the live user. 
 
-Chrome is not storing passwods in clear in its databases, it ciphers them through Data Protection API before storing the resultant BLOBS into the "login data" SQLITE file inside the user profile. 
+Chrome is not storing passwods in clear in its databases, it ciphers them through Data Protection API and then stores the resultant BLOBS into the "login data" SQLITE file inside the user profile. 
 
-The script retrieves the ciphered BLOBs from such database and then requests the decription of cyphered BLOB to the Local Security Authority through **Windows Data Protection API (DPAPI)**, writing decrypted values to a clear text file afterwards.
+This code retrieves the ciphered BLOBs from such database and then requests the decription of cyphered BLOB to the Local Security Authority through **Windows Data Protection API (DPAPI)**, writing decrypted values to a clear text file afterwards.
 
-Since DPAPI uses several ciphering layers, and the first of them is derived (400 rounds PBKDF2) from user password, access to DPAPI decryption functions is not possible if the user is not logged in the live system, making the offline decryption of Chrome passwords a matter of slow, unfeasible bruteforcing. This suposes an enhancement since previous versions of Chrome, which stored passwords in clear, but it is still poses a compromisable vector in case the computer does not use full disk encryption. This is is possible thanks to two-step offline DPAPI attacks (see below). 
+Since DPAPI uses several ciphering layers, and the first of them is derived (400 rounds PBKDF2) from user password, access to DPAPI decryption functions is not possible if the user is not logged in the live Windows system, making the offline decryption of Chrome passwords a matter of slow, unfeasible bruteforcing. This approach presents an enhancement respect previous versions of Chrome, which stored passwords in clear, but it is still poses a compromisable vector in case the computer does not use full disk encryption. This is possible thanks to **two-step offline DPAPI attacks** (see below). 
 
 A sample auxiliary BAT script is provided for demonstration purposes as a launcher/dropper tool, which can circunvent the forementioned security provided by DPAPI using a "two-step offline attack" when target computer has not full disk encryption. The technique would be like this:
 
