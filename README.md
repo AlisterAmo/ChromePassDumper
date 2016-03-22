@@ -9,7 +9,7 @@ This code retrieves the ciphered BLOBs from such database and then requests the 
 
 Since DPAPI uses several ciphering layers, and the first of them is derived (400 rounds PBKDF2) from user password, access to DPAPI decryption functions is not possible if the user is not logged in the live Windows system, making the offline decryption of Chrome passwords a matter of slow, unfeasible bruteforcing. This approach presents an enhancement respect previous versions of Chrome, which stored passwords in clear, but it is still poses a compromisable vector in case the computer does not use full disk encryption. This is possible thanks to **two-step offline DPAPI attacks** (see below). 
 
-A sample auxiliary BAT script is provided for demonstration purposes as a launcher/dropper tool, which can circunvent the forementioned security provided by DPAPI using a "two-step offline attack" when target computer has not full disk encryption. The technique would be like this:
+A sample auxiliary BAT script is provided for demonstration purposes as a launcher/dropper tool, which can circunvent the forementioned security provided by DPAPI using a "two-step offline attack" when target computer has not full disk encryption and the attacker has access to computer at least two times. The technique would be like this:
 
 ##STEP ONE
 
