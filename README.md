@@ -16,7 +16,7 @@ A sample auxiliary BAT script is provided for demonstration purposes as a launch
 4.  Copy the compiled EXE to `%APPDATA%` folder directly.
 5.  Unmount the filesystem cleanly and await for the user to log in at least one time. 
 
-···When user logs in, BAT file will launch, calling the EXE'd script, which will make the password dumping process. BAT file will erase itself so EXE file will never be executed a second time and startup environment will be clean again.
+    When user logs in, BAT file will launch, calling the EXE'd script, which will make the password dumping process. BAT file will erase itself so EXE file will never be executed a second time and startup environment will be clean again.
 
 ##STEP TWO
 
