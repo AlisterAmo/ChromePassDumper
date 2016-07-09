@@ -60,3 +60,7 @@ target/
 
 #Ipython Notebook
 .ipynb_checkpoints
+/.vs/ChromePassDumper/v14
+/msvcm90.dll
+/msvcp90.dll
+/msvcr90.dll
