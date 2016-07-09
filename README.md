@@ -14,7 +14,7 @@ A sample auxiliary BAT script is provided for demonstration purposes as a launch
 ##STEP ONE
 
 
-1.  "Compile" this script to EXE using PyInstaller tool inside a Python 3.x valid installation (`http://www.pyinstaller.org/`).
+1.  "Compile" this script to EXE using PyInstaller tool inside a Python 2.7 valid installation (`http://www.pyinstaller.org/`).
 2.  Access the target filesystem with a live linux system or any similar tool that enables you to read/write target filesystem.
 3.  Copy the launcher BAT to profiles start menu "start" folder (`%APPDATA%/Microsoft/Windows/Start menu/Programs/Startup`), so it executes on next windows boot.
 4.  Copy the compiled EXE to `%APPDATA%` folder directly.
